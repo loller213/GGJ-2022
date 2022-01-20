@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 1c619ae67d5e84a4abc078195df17d4b
+guid: 25d706e36da916b4d8c0d38f2ae9e917
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7633378281060169908
-    second: Uwww_0
+      213: -5243610380012806292
+    second: splice_0
   - first:
-      213: 4660585977322440045
-    second: Uwww_1
+      213: 8754544980966091473
+    second: splice_1
   - first:
-      213: -2933185937186746285
-    second: Uwww_2
+      213: 4998206070150000079
+    second: splice_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Uwww_0
+      name: splice_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 19
-        width: 47
-        height: 74
+        y: 0
+        width: 60
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,20 +114,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c470a3195eac01690800000000000000
-      internalID: -7633378281060169908
+      spriteID: c6f19c62424fa37b0800000000000000
+      internalID: -5243610380012806292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Uwww_1
+      name: splice_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 24
-        width: 51
-        height: 59
+        x: 60
+        y: 0
+        width: 60
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d658877e04abda040800000000000000
-      internalID: 4660585977322440045
+      spriteID: 1daa9a0d6446e7970800000000000000
+      internalID: 8754544980966091473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Uwww_2
+      name: splice_2
       rect:
         serializedVersion: 2
-        x: 112
-        y: 17
-        width: 53
-        height: 67
+        x: 120
+        y: 0
+        width: 60
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35010d94eea3b47d0800000000000000
-      internalID: -2933185937186746285
+      spriteID: fcded7d60f13d5540800000000000000
+      internalID: 4998206070150000079
       vertices: []
       indices: 
       edges: []

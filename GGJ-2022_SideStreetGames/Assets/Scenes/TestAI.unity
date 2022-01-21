@@ -575,6 +575,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &285934446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 263372965733403085, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+  m_PrefabInstance: {fileID: 263372966834750046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &285934447 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 263372965733403082, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+  m_PrefabInstance: {fileID: 263372966834750046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +759,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1113279380}
+  - {fileID: 285934447}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1825,6 +1835,6 @@ PrefabInstance:
     - target: {fileID: 4668328176454157462, guid: ad7e2acd454c2314e9272639bdcff9bf, type: 3}
       propertyPath: PauseUI
       value: 
-      objectReference: {fileID: 1113279379}
+      objectReference: {fileID: 285934446}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad7e2acd454c2314e9272639bdcff9bf, type: 3}

@@ -6,23 +6,19 @@ public class CharacterController : MonoBehaviour
 {
 
     [SerializeField] private FieldOfView fieldOfView;
-
-    private Rigidbody2D rb;
-
     [SerializeField] private float speed;
+    private Rigidbody2D rb;
+    private Vector2 boxSize = new Vector2(0.1f, 1f);
     private float currentSpeedX, currentSpeedY;
 
     public Animator animator;
-
     private Vector3 aimDir;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         LookAtMouse();
@@ -60,6 +56,34 @@ public class CharacterController : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(currentSpeedX + currentSpeedY));
 
+    }
+
+    public void OpenInteractableIcon()                          //This Function Should be on Game Control but I'll just fix it on the process of setting up the interactable objects
+    {
+        Debug.Log("Currently Interacting");
+        
+    }
+                                                            
+    public void CloseInteractableIcon()                        //This Function Should be on Game Control but I'll just fix it on the process of setting up the interactable objects
+    {
+
+    }
+
+    private void CheckInteraction()
+    {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, boxSize, 0, Vector2.zero);
+
+        if (hits.Length > 0)
+        {
+            foreach (RaycastHit2D rc in hits)
+            {
+                if (rc.transform.GetComponent<Interactable>())
+                {
+                    rc.transform.GetComponent<Interactable>().Interact();
+                    return;
+                }
+            }
+        }
     }
 
 }

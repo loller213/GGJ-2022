@@ -18,8 +18,23 @@ namespace Pathfinding {
 		public Transform target;
 		IAstarAI ai;
 
+		// Patrol AI
+		public Transform[] targets;
+
+		/// <summary>Time in seconds to wait at each target</summary>
+		public float delay = 0;
+
+		/// <summary>Current target index</summary>
+		int index;
+
+		float switchTime = float.PositiveInfinity;
+
+		//Safe Area
+		private BoxCollider2D safeArea;
+
 		void OnEnable () {
 			ai = GetComponent<IAstarAI>();
+			safeArea = GameObject.FindWithTag("Safe Area").GetComponent<BoxCollider2D>();
 			// Update the destination right before searching for a path as well.
 			// This is enough in theory, but this script will also update the destination every
 			// frame as the destination is used for debugging and may be used for other things by other
@@ -33,7 +48,36 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			if (target != null && ai != null) ai.destination = target.position;
-		}
+			bool notInSafeArea = !safeArea.bounds.Contains(target.position);
+			if (target != null && ai != null && notInSafeArea) ai.destination = target.position;
+			else
+            {
+                if (targets.Length == 0) return;
+
+                bool search = false;
+
+                // Note: using reachedEndOfPath and pathPending instead of reachedDestination here because
+                // if the destination cannot be reached by the agent, we don't want it to get stuck, we just want it to get as close as possible and then move on.
+                if (ai.reachedEndOfPath && !ai.pathPending && float.IsPositiveInfinity(switchTime))
+                {
+                    switchTime = Time.time + delay;
+                }
+
+                if (Time.time >= switchTime)
+                {
+                    index = index + 1;
+                    search = true;
+                    switchTime = float.PositiveInfinity;
+                }
+
+                index = index % targets.Length;
+				Debug.Log("index: " + index);
+				
+                ai.destination = targets[index].position;
+				Debug.Log("ai dest: " + ai.destination);
+                
+				//if (search) ai.SearchPath();
+            }
+        }
 	}
 }

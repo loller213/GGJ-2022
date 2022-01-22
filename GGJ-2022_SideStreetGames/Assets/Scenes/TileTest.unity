@@ -415,6 +415,62 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cfbfb36a713a094bb445c5d1cb972d4, type: 3}
+--- !u!1 &157565646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6891746157555569083, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
+  m_PrefabInstance: {fileID: 1493552831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &157565651
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157565646}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 3667628309201231432, guid: aa6e40fe00a67dc4aba28755c4551341, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.54, y: 4.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &192314875
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,17 +875,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6891746157555569076, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
+      propertyPath: radius
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891746157555569076, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
+      propertyPath: maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6891746157555569078, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6891746157555569078, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6891746157555569078, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6891746157555569078, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
       propertyPath: m_LocalScale.z
@@ -837,11 +901,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6891746157555569078, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.543846
+      value: -28.1
       objectReference: {fileID: 0}
     - target: {fileID: 6891746157555569078, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.12
+      value: 18.76
       objectReference: {fileID: 0}
     - target: {fileID: 6891746157555569078, guid: e40b4a0cdb8d7d64192f15c4a0c1fc69, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34172,6 +34236,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5703165445779409857, guid: 2eb0760bc0672bb498a4b89134a49429, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5703165445779409857, guid: 2eb0760bc0672bb498a4b89134a49429, type: 3}
       propertyPath: fieldOfView
       value: 

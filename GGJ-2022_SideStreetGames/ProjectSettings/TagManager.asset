@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Safe Area
+  - PlayerPos
+  - Enemy
   layers:
   - Default
   - TransparentFX

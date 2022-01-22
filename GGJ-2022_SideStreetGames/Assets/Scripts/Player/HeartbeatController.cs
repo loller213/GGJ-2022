@@ -31,11 +31,13 @@ public class HeartbeatController : MonoBehaviour
         {
             if (hitCollider.gameObject.tag == "Enemy")
             {
-                float enemyDistance = Vector3.Distance(hitCollider.gameObject.transform.position, gameObject.transform.position);
+                Vector3 enemyPosition = hitCollider.gameObject.transform.position;
+                float enemyDistance = Vector3.Distance(enemyPosition, gameObject.transform.position);
                 nearestEnemyDistance = enemyDistance < nearestEnemyDistance ? enemyDistance:nearestEnemyDistance;
 
                 audioSource.volume = 1 -(nearestEnemyDistance / detectionRange);
                 audioSource.pitch = audioSource.volume * 3;
+                audioSource.panStereo = (enemyPosition.x / detectionRange);
             }
         }
     }

@@ -14,7 +14,6 @@ public abstract class Interactable : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<CharacterController>().OpenInteractableIcon();
             Debug.Log("Player in Object Range");
         }
             
@@ -24,7 +23,6 @@ public abstract class Interactable : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<CharacterController>().CloseInteractableIcon();
             Debug.Log("Player in out Object Range");
         }
             

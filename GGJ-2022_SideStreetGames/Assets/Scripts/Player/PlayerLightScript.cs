@@ -47,7 +47,7 @@ public class PlayerLightScript : MonoBehaviour
         }
         else if (batteryPercent < 30 && batteryPercent > 10)
         {
-            playerLight.intensity = Mathf.PingPong(0.2f, 0.7f);
+            StartCoroutine(LightFlicker());
         }else if (batteryPercent < 10)
         {
             playerLight.intensity = 0.0f;
@@ -62,4 +62,14 @@ public class PlayerLightScript : MonoBehaviour
         }
 
     }
+
+    IEnumerator LightFlicker()
+    {
+
+        yield return new WaitForSeconds(1);
+        playerLight.intensity = Random.Range(0.0f, 0.4f);
+        StartCoroutine(LightFlicker());
+
+    }
+
 }

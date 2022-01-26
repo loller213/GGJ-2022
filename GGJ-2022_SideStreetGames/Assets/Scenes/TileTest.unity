@@ -43875,6 +43875,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.077
       objectReference: {fileID: 0}
+    - target: {fileID: 7329114093262105744, guid: ad44e4a0163a72b4fb0aff145c847f4e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7329114093262105745, guid: ad44e4a0163a72b4fb0aff145c847f4e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -43965,6 +43969,14 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2575396003853343107, guid: 16f57ffbe1c007b4f82e06a77209ad52, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575396003853343107, guid: 16f57ffbe1c007b4f82e06a77209ad52, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575396003853343107, guid: 16f57ffbe1c007b4f82e06a77209ad52, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4
       objectReference: {fileID: 0}
@@ -44004,6 +44016,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2575396003853343109, guid: 16f57ffbe1c007b4f82e06a77209ad52, type: 3}
+      propertyPath: radius
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575396003853343109, guid: 16f57ffbe1c007b4f82e06a77209ad52, type: 3}
+      propertyPath: rotationSpeed
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 2575396003853343110, guid: 16f57ffbe1c007b4f82e06a77209ad52, type: 3}
       propertyPath: target
       value: 
@@ -44016,6 +44036,10 @@ PrefabInstance:
       propertyPath: targets.Array.data[1]
       value: 
       objectReference: {fileID: 192314877}
+    - target: {fileID: 2575396003853343112, guid: 16f57ffbe1c007b4f82e06a77209ad52, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2575396003853343113, guid: 16f57ffbe1c007b4f82e06a77209ad52, type: 3}
       propertyPath: m_Name
       value: Enemy 2

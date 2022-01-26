@@ -13,7 +13,8 @@ public class FollowObject : MonoBehaviour
     void Start()
     {
         //Assign Main Camera
-        cam = Camera.main;            
+        cam = Camera.main;
+        offset = new Vector3(0, 1f, 0);
     }
 
 

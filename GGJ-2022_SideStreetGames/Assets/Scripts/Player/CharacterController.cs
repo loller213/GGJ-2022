@@ -19,7 +19,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        isOn = true;
+        isOn = false;
         rb = GetComponent<Rigidbody2D>();
     }
 

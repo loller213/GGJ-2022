@@ -13,10 +13,15 @@ public class PlayerLightScript : MonoBehaviour
     [SerializeField] private GameObject playerLightGO;
     [SerializeField] private float batteryPercent;
 
-    // Start is called before the first frame update
-    void Start()
+
+
+    private void Awake()
     {
         playerLightGO.SetActive(false);
+    }
+
+    void Start()
+    {
         batteryPercent = 100;
     }
 

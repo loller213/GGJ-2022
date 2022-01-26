@@ -11,18 +11,26 @@ public class CharacterController : MonoBehaviour
     private Vector2 boxSize = new Vector2(0.1f, 1f);
     private float currentSpeedX, currentSpeedY;
 
+    public static bool isSafe;
+    public static bool isOn;
+
     public Animator animator;
     private Vector3 aimDir;
 
     void Start()
     {
+        isOn = true;
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+
+
         LookAtMouse();
         Movement();
+
+        FlashlightOnOff();
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
         {
@@ -84,6 +92,33 @@ public class CharacterController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void FlashlightOnOff()
+    {
+
+        if (Input.GetKeyDown(KeyCode.F) && isOn == false)
+        {
+            isOn = true;
+        }else if (Input.GetKeyDown(KeyCode.F) && isOn == true)
+        {
+            isOn = false;
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if(collision.gameObject.CompareTag("Safe Area"))
+        {
+            isSafe = true;
+        }
+        else
+        {
+            isSafe = false;
+        }
+
     }
 
 }

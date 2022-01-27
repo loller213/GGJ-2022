@@ -7,6 +7,7 @@ TagManager:
   - Safe Area
   - PlayerPos
   - Enemy
+  - Light
   layers:
   - Default
   - TransparentFX

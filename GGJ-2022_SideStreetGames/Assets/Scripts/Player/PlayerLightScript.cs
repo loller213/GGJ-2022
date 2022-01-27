@@ -62,36 +62,41 @@ public class PlayerLightScript : MonoBehaviour
         //FlashlightIntensity
         if (batteryPercent <= 100 && batteryPercent >= 75)
         {
-            playerLight.intensity = 0.9f;
+            //playerLight.intensity = 0.9f;
+            StartCoroutine(LightFlicker());
+            minLight = 0.9f;
+            maxLight = 0.9f;
+
         }
         else if (batteryPercent <= 75 && batteryPercent >= 50)
         {
-            playerLight.intensity = 0.7f;
+            //playerLight.intensity = 0.7f;
+
+            minLight = 0.7f;
+            maxLight = 0.7f;
+
         }
         else if (batteryPercent <= 50 && batteryPercent >= 25)
         {
 
             minLight = 0.2f;
             maxLight = 0.5f;
-
-            StartCoroutine(LightFlicker());
             
         }
-        else if (batteryPercent <= 25 && batteryPercent >= 10)
+        else if (batteryPercent <= 25 && batteryPercent >= 5)
         {
             minLight = 0.0f;
             maxLight = 0.3f;
 
-            StartCoroutine(LightFlicker());
         }
-        else if (batteryPercent <= 10)
+        else if (batteryPercent <= 5)
         {
 
             minLight = 0.0f;
             maxLight = 0.0f;
 
-            //StopCoroutine(LightFlicker());
-            //playerLight.intensity = 0.0f;
+            //getIsOn = false;
+
         }
 
         //FlashLightOn/Off

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using TMPro;
 
 public class PlayerLightScript : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class PlayerLightScript : MonoBehaviour
     [SerializeField] private float maxLight;
     [SerializeField] private float minLight;
 
+    [SerializeField] private TextMeshProUGUI batteryText;
+
+    private Battery battery;
 
     private void Awake()
     {
@@ -25,21 +29,26 @@ public class PlayerLightScript : MonoBehaviour
     void Start()
     {
         batteryPercent = Battery.currentBattery;
+        batteryText.text = batteryPercent + "%";
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        batteryText.text = batteryPercent + "%";
 
         getIsSafe = CharacterController.isSafe;
         getIsOn = CharacterController.isOn;
-
+        /*
         if (Input.GetKeyDown(KeyCode.L))
         {
             batteryPercent -= 10;
             //Debug.Log(batteryPercent);
         }
+        */
+
+
+
 
         //FlashlightIntensity
         if (batteryPercent <= 100 && batteryPercent >= 75)
@@ -85,6 +94,16 @@ public class PlayerLightScript : MonoBehaviour
             playerLightGO.SetActive(false);
         }
 
+    }
+
+    private void BatteryConsumption()
+    {
+        battery.batteryConsume();
+    }
+
+    private void BatteryRegen()
+    {
+        battery.batteryRegen();
     }
 
     IEnumerator LightFlicker()

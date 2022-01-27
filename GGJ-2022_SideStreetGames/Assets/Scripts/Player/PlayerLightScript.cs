@@ -35,14 +35,14 @@ public class PlayerLightScript : MonoBehaviour
     void Start()
     {
         batteryPercent = 100f;
-        batteryText.text = Mathf.RoundToInt(batteryPercent) + "%";
+        batteryText.text = Mathf.RoundToInt(batteryPercent) + "";
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        batteryText.text = Mathf.RoundToInt(batteryPercent) + "%";
+        batteryText.text = Mathf.RoundToInt(batteryPercent) + "";
 
         getIsSafe = CharacterController.isSafe;
         getIsOn = CharacterController.isOn;

@@ -13,6 +13,8 @@ public class PlayerLightScript : MonoBehaviour
     [SerializeField] private GameObject playerLightGO;
     [SerializeField] private float batteryPercent;
 
+    [SerializeField] private float maxLight;
+    [SerializeField] private float minLight;
 
 
     private void Awake()
@@ -22,12 +24,14 @@ public class PlayerLightScript : MonoBehaviour
 
     void Start()
     {
-        batteryPercent = 100;
+        batteryPercent = Battery.currentBattery;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         getIsSafe = CharacterController.isSafe;
         getIsOn = CharacterController.isOn;
 
@@ -37,22 +41,42 @@ public class PlayerLightScript : MonoBehaviour
             //Debug.Log(batteryPercent);
         }
 
-        if (batteryPercent < 100 && batteryPercent > 70)
+        //FlashlightIntensity
+        if (batteryPercent <= 100 && batteryPercent >= 75)
         {
             playerLight.intensity = 0.9f;
         }
-        else if (batteryPercent < 70 && batteryPercent > 30)
+        else if (batteryPercent <= 75 && batteryPercent >= 50)
         {
             playerLight.intensity = 0.7f;
         }
-        else if (batteryPercent < 30 && batteryPercent > 10)
+        else if (batteryPercent <= 50 && batteryPercent >= 25)
         {
+
+            minLight = 0.2f;
+            maxLight = 0.5f;
+
             StartCoroutine(LightFlicker());
-        }else if (batteryPercent < 10)
+            
+        }
+        else if (batteryPercent <= 25 && batteryPercent >= 10)
         {
-            playerLight.intensity = 0.0f;
+            minLight = 0.0f;
+            maxLight = 0.3f;
+
+            StartCoroutine(LightFlicker());
+        }
+        else if (batteryPercent <= 10)
+        {
+
+            minLight = 0.0f;
+            maxLight = 0.0f;
+
+            //StopCoroutine(LightFlicker());
+            //playerLight.intensity = 0.0f;
         }
 
+        //FlashLightOn/Off
         if (getIsOn == true)
         {
             playerLightGO.SetActive(true);
@@ -66,9 +90,46 @@ public class PlayerLightScript : MonoBehaviour
     IEnumerator LightFlicker()
     {
 
-        yield return new WaitForSeconds(1);
-        playerLight.intensity = Random.Range(0.0f, 0.4f);
+        yield return new WaitForSeconds(1.0f);
+        playerLight.intensity = Random.Range(minLight, maxLight);
+        //yield return new WaitForSeconds(3.0f);
         StartCoroutine(LightFlicker());
+
+    }
+
+}
+
+public class Battery
+{
+
+    public const float MaxBattery = 100;
+    //public const float MinBattery = 0;
+
+    public static float currentBattery;
+    private float batteryRegenAmt;
+    private float batteryConsumeAmt;
+
+    public Battery()
+    {
+        currentBattery = 100f;
+
+        batteryRegenAmt = 10f;
+        batteryConsumeAmt = 5f;
+    }
+
+    public void batteryRegen()
+    {
+        currentBattery += batteryRegenAmt * Time.deltaTime;
+
+        currentBattery = Mathf.Clamp(currentBattery, 0f, MaxBattery);
+
+    }
+
+    public void batteryConsume()
+    {
+        currentBattery -= batteryConsumeAmt * Time.deltaTime;
+
+        currentBattery = Mathf.Clamp(currentBattery, 0f, MaxBattery);
 
     }
 

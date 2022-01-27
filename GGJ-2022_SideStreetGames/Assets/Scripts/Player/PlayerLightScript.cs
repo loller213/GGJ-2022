@@ -17,9 +17,14 @@ public class PlayerLightScript : MonoBehaviour
     [SerializeField] private float maxLight;
     [SerializeField] private float minLight;
 
+    [SerializeField] private float MaxBattery = 100f;
+
+    //[SerializeField] private float currentBattery = 100f;
+    [SerializeField] private float batteryRegenAmt;
+    [SerializeField] private float batteryConsumeAmt;
+
     [SerializeField] private TextMeshProUGUI batteryText;
 
-    private Battery battery;
 
     private void Awake()
     {
@@ -28,26 +33,30 @@ public class PlayerLightScript : MonoBehaviour
 
     void Start()
     {
-        batteryPercent = Battery.currentBattery;
-        batteryText.text = batteryPercent + "%";
+        batteryPercent = 100f;
+        batteryText.text = Mathf.RoundToInt(batteryPercent) + "%";
     }
 
     // Update is called once per frame
     void Update()
     {
-        batteryText.text = batteryPercent + "%";
+
+        batteryText.text = Mathf.RoundToInt(batteryPercent) + "%";
 
         getIsSafe = CharacterController.isSafe;
         getIsOn = CharacterController.isOn;
-        /*
-        if (Input.GetKeyDown(KeyCode.L))
+
+        //ConsumeBattery
+        if (getIsOn == true && getIsSafe == false)
         {
-            batteryPercent -= 10;
-            //Debug.Log(batteryPercent);
+            batteryConsume();
         }
-        */
 
-
+        //RegenBattery
+        if (getIsOn == false && getIsSafe == false)
+        {
+            batteryRegen();
+        }
 
 
         //FlashlightIntensity
@@ -96,14 +105,20 @@ public class PlayerLightScript : MonoBehaviour
 
     }
 
-    private void BatteryConsumption()
+    public void batteryRegen()
     {
-        battery.batteryConsume();
+        batteryPercent += batteryRegenAmt * Time.deltaTime;
+
+        batteryPercent = Mathf.Clamp(batteryPercent, 0f, MaxBattery);
+
     }
 
-    private void BatteryRegen()
+    public void batteryConsume()
     {
-        battery.batteryRegen();
+        batteryPercent -= batteryConsumeAmt * Time.deltaTime;
+
+        batteryPercent = Mathf.Clamp(batteryPercent, 0f, MaxBattery);
+
     }
 
     IEnumerator LightFlicker()
@@ -118,13 +133,13 @@ public class PlayerLightScript : MonoBehaviour
 
 }
 
+/*
 public class Battery
 {
 
     public const float MaxBattery = 100;
-    //public const float MinBattery = 0;
 
-    public static float currentBattery;
+    public static float currentBattery = 100f;
     private float batteryRegenAmt;
     private float batteryConsumeAmt;
 
@@ -153,3 +168,5 @@ public class Battery
     }
 
 }
+
+*/

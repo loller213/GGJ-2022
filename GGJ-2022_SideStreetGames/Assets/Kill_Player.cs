@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Kill_Player : MonoBehaviour
 {
-    GameObject Player;
-    Collider teeth;
+    CircleCollider2D teeth;
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        teeth.GetComponent<CircleCollider2D>();
+        teeth = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -19,12 +17,11 @@ public class Kill_Player : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("collide");
-        if(collision.gameObject == Player)
+        if (other.tag == "Player")
         {
-            Debug.Log("Found Player");
+            Destroy(other.gameObject);
         }
     }
 }

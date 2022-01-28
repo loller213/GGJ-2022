@@ -30,11 +30,22 @@ namespace Pathfinding {
 		float switchTime = float.PositiveInfinity;
 
 		//Safe Area
-		private BoxCollider2D safeArea;
+		private BoxCollider2D[] safeArea;
+
+		private bool notInSafeArea;
+
+		public int safeAreaQty;
 
 		void OnEnable () {
 			ai = GetComponent<IAstarAI>();
-			safeArea = GameObject.FindWithTag("Safe Area").GetComponent<BoxCollider2D>();
+
+            for (int i = 0; i < safeAreaQty; i++)
+            {
+				safeArea[i] = GameObject.FindWithTag("Safe Area").GetComponent<BoxCollider2D>();
+			}
+
+			//safeArea[] = GameObject.FindWithTag("Safe Area").GetComponent<BoxCollider2D>();
+
 			// Update the destination right before searching for a path as well.
 			// This is enough in theory, but this script will also update the destination every
 			// frame as the destination is used for debugging and may be used for other things by other
@@ -48,7 +59,15 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			bool notInSafeArea = !safeArea.bounds.Contains(target.position);
+
+            for (int i = 0; i < safeAreaQty; i++)
+            {
+				notInSafeArea = !safeArea[].bounds.Contains(target.position);
+			}
+
+			//bool notInSafeArea = !safeArea[].bounds.Contains(target.position);
+
+
 			if (target != null && ai != null && notInSafeArea) ai.destination = target.position;
 			else
             {

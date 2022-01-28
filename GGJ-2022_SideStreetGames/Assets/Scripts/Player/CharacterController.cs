@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour
 
     public static bool isSafe;
     public static bool isOn;
+    public static bool isAlive;
 
     public Animator animator;
     //private Vector2 aimDir;
@@ -22,6 +23,7 @@ public class CharacterController : MonoBehaviour
     {
         isOn = false;
         rb = GetComponent<Rigidbody2D>();
+        isAlive = true;
     }
 
     void Update()
@@ -103,10 +105,10 @@ public class CharacterController : MonoBehaviour
     private void FlashlightOnOff()
     {
 
-        if (Input.GetKeyDown(KeyCode.F) && isOn == false)
+        if (Input.GetKeyDown(KeyCode.E) && isOn == false)
         {
             isOn = true;
-        }else if (Input.GetKeyDown(KeyCode.F) && isOn == true)
+        }else if (Input.GetKeyDown(KeyCode.E) && isOn == true)
         {
             isOn = false;
         }

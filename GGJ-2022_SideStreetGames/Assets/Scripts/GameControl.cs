@@ -38,5 +38,11 @@ public class GameControl : MonoBehaviour
         gamePaused = false;
     }
 
+    public void GameOver()
+    {
+        GameOverUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
 }
 

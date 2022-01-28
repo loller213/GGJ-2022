@@ -38,18 +38,8 @@ public class HeartbeatController : MonoBehaviour
                 float enemyDistance = Vector2.Distance(enemyPosition, object2DPosition);
                 nearestEnemyDistance = enemyDistance < nearestEnemyDistance ? enemyDistance:nearestEnemyDistance;
 
-                //if (nearestEnemyDistance <= nearestDetectionRange)
-                //{
-                //    audioSource.volume = 1;
-                //}
-                //else
-                //{
-                //    float volumeIncrements = (furthestDetectionRange / nearestDetectionRange) / 50f;
-                //    audioSource.volume = 1 - volumeIncrements * (nearestEnemyDistance - nearestDetectionRange);
-                //}
 
                 Debug.Log("Nearest enemy distance: " + nearestEnemyDistance);
-                //audioSource.volume = 1 -(nearestEnemyDistance / furthestDetectionRange);
                 audioSource.volume = 1-((nearestEnemyDistance - nearestDetectionRange) / (furthestDetectionRange - nearestDetectionRange));
                 audioSource.pitch = audioSource.volume * 3;
                 audioSource.panStereo = ((enemyPosition.x-object2DPosition.x) / furthestDetectionRange);

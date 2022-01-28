@@ -19,14 +19,16 @@ public class Slot : MonoBehaviour {
         if (transform.childCount <= 0) {
             inventory.items[index] = 0;
         }
+
+        Debug.Log(index);
     }
 
-    public void Cross() {
+    //public void Cross() {
 
-        foreach (Transform child in transform) {
-            child.GetComponent<Spawn>().SpawnItem();
-            GameObject.Destroy(child.gameObject);
-        }
-    }
+    //    foreach (Transform child in transform) {
+    //        child.GetComponent<Spawn>().SpawnItem();
+    //        GameObject.Destroy(child.gameObject);
+    //    }
+    //}
 
 }

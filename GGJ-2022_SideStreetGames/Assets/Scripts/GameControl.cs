@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
@@ -8,18 +9,31 @@ public class GameControl : MonoBehaviour
     public GameObject GameOverUI;
 
     private bool gamePaused;
+    public static bool isAlive;
+
+    private void Start()
+    {
+        isAlive = true;
+        Time.timeScale = 1f;
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        if (isAlive)
         {
-            if (gamePaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                ResumeGame();
+                if (gamePaused)
+                {
+                    ResumeGame();
+                }
+                else
+                    PauseGame();
             }
-            else
-                PauseGame();
         }
+        else
+            GameOver();
     }
 
     //Methods
@@ -41,7 +55,27 @@ public class GameControl : MonoBehaviour
     public void GameOver()
     {
         GameOverUI.SetActive(true);
-        Time.timeScale = 0f;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+
+    public void ReturntoTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("TestAI");
     }
 
 }

@@ -26,7 +26,8 @@ public class Player_Interaction : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Destroy(other.gameObject);
+            GameControl.isAlive = false;
+            //Destroy(other.gameObject);
         }
 
         if (other.tag == "Light")

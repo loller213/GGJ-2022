@@ -14,7 +14,6 @@ public class CharacterController : MonoBehaviour
 
     public static bool isSafe;
     public static bool isOn;
-    public static bool isAlive;
 
     public Animator animator;
     //private Vector2 aimDir;
@@ -23,16 +22,13 @@ public class CharacterController : MonoBehaviour
     {
         isOn = false;
         rb = GetComponent<Rigidbody2D>();
-        isAlive = true;
+        Debug.Log(GameControl.isAlive);
     }
 
     void Update()
     {
-
-
-        LookAtMouse();
         Movement();
-
+        LookAtMouse();
         FlashlightOnOff();
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
@@ -43,7 +39,6 @@ public class CharacterController : MonoBehaviour
         {
             animator.SetBool("IsMoving", false);
         }
-
     }
 
     private void LookAtMouse()
@@ -72,34 +67,6 @@ public class CharacterController : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(currentSpeedX + currentSpeedY));
 
-    }
-
-    public void OpenInteractableIcon()                          //This Function Should be on Game Control but I'll just fix it on the process of setting up the interactable objects
-    {
-        Debug.Log("Currently Interacting");
-        
-    }
-                                                            
-    public void CloseInteractableIcon()                        //This Function Should be on Game Control but I'll just fix it on the process of setting up the interactable objects
-    {
-
-    }
-
-    private void CheckInteraction()
-    {
-        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, boxSize, 0, Vector2.zero);
-
-        if (hits.Length > 0)
-        {
-            foreach (RaycastHit2D rc in hits)
-            {
-                if (rc.transform.GetComponent<Interactable>())
-                {
-                    rc.transform.GetComponent<Interactable>().Interact();
-                    return;
-                }
-            }
-        }
     }
 
     private void FlashlightOnOff()

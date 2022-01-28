@@ -5,8 +5,9 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
-    [SerializeField] private FieldOfView fieldOfView;
+    //[SerializeField] private FieldOfView fieldOfView;
     [SerializeField] private float speed;
+    [SerializeField] private float aimSpeed;
     private Rigidbody2D rb;
     private Vector2 boxSize = new Vector2(0.1f, 1f);
     private float currentSpeedX, currentSpeedY;
@@ -15,7 +16,7 @@ public class CharacterController : MonoBehaviour
     public static bool isOn;
 
     public Animator animator;
-    private Vector3 aimDir;
+    //private Vector2 aimDir;
 
     void Start()
     {
@@ -45,11 +46,16 @@ public class CharacterController : MonoBehaviour
 
     private void LookAtMouse()
     {
+        /*
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.right = mousePos - new Vector2(transform.position.x, transform.position.y);
-        aimDir = transform.right;
-        fieldOfView.SetAimDirection(aimDir);
-        fieldOfView.SetOrigin(transform.position);
+        //transform.right = Vector2.Lerp(mousePos, new Vector2(transform.position.x, transform.position.y), Time.deltaTime);
+        */
+
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, aimSpeed * Time.deltaTime);
 
     }
 

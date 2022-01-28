@@ -34,7 +34,6 @@ public class PlayerLightScript : MonoBehaviour
 
     void Start()
     {
-        visionCone.SetActive(false);
         batteryPercent = 100f;
         batteryText.text = Mathf.RoundToInt(batteryPercent) + "";
     }
@@ -108,12 +107,9 @@ public class PlayerLightScript : MonoBehaviour
         if (getIsOn == true)
         {
             playerLightGO.SetActive(true);
-            visionCone.SetActive(true);
         }else if (getIsOn == false)
         {
             playerLightGO.SetActive(false);
-            //Vision Cone Collider is inactive when flashlight is off.
-            visionCone.SetActive(false);
         }
 
     }

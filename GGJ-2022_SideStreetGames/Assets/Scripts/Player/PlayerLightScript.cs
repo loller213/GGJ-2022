@@ -104,6 +104,7 @@ public class PlayerLightScript : MonoBehaviour
 
         }
 
+        //Vision Cone Collider is inactive when flashlight is off.
         //FlashLightOn/Off
         if (getIsOn == true)
         {
@@ -112,7 +113,6 @@ public class PlayerLightScript : MonoBehaviour
         }else if (getIsOn == false)
         {
             playerLightGO.SetActive(false);
-            //Vision Cone Collider is inactive when flashlight is off.
             visionCone.SetActive(false);
         }
 

@@ -32,16 +32,9 @@ public class Player_Interaction : MonoBehaviour
         if (other.tag == "Light")
         {
             aiPath.maxSpeed = 0f;
-        }
-
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Light")
-        {
             Invoke("unFreezeEnemy", freezeDuration);
         }
+
     }
 
     void unFreezeEnemy()

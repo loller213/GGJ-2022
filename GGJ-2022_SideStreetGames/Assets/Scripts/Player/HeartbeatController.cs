@@ -34,30 +34,25 @@ public class HeartbeatController : MonoBehaviour
         {
             if (hitCollider.gameObject.tag == "Enemy")
             {
-                Debug.Log("ENEMY FOUND");
                 Vector2 enemyPosition = hitCollider.gameObject.transform.position;
                 float enemyDistance = Vector2.Distance(enemyPosition, object2DPosition);
-                Debug.Log("enemy distance: " + enemyDistance);
                 nearestEnemyDistance = enemyDistance < nearestEnemyDistance ? enemyDistance:nearestEnemyDistance;
 
-                if (nearestEnemyDistance <= nearestDetectionRange)
-                {
-                    audioSource.volume = 1;
-                }
-                else
-                {
-                    float volumeIncrements = (furthestDetectionRange / nearestDetectionRange) / 50f;
-                    audioSource.volume = 1 - volumeIncrements * (nearestEnemyDistance - nearestDetectionRange);
-                }
+                //if (nearestEnemyDistance <= nearestDetectionRange)
+                //{
+                //    audioSource.volume = 1;
+                //}
+                //else
+                //{
+                //    float volumeIncrements = (furthestDetectionRange / nearestDetectionRange) / 50f;
+                //    audioSource.volume = 1 - volumeIncrements * (nearestEnemyDistance - nearestDetectionRange);
+                //}
 
-
+                Debug.Log("Nearest enemy distance: " + nearestEnemyDistance);
                 //audioSource.volume = 1 -(nearestEnemyDistance / furthestDetectionRange);
-                //audioSource.volume = (nearestEnemyDistance-nearestDetectionRange / furthestDetectionRange-nearestDetectionRange);
+                audioSource.volume = 1-((nearestEnemyDistance - nearestDetectionRange) / (furthestDetectionRange - nearestDetectionRange));
                 audioSource.pitch = audioSource.volume * 3;
                 audioSource.panStereo = ((enemyPosition.x-object2DPosition.x) / furthestDetectionRange);
-                Debug.Log("stereo:" + audioSource.panStereo);
-
-                Gizmos.DrawWireSphere(enemyPosition, 5);
             }
         }
     }

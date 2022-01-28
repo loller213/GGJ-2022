@@ -40,10 +40,25 @@ public class HeartbeatController : MonoBehaviour
 
 
                 Debug.Log("Nearest enemy distance: " + nearestEnemyDistance);
-                audioSource.volume = 1-((nearestEnemyDistance - nearestDetectionRange) / (furthestDetectionRange - nearestDetectionRange));
+                if (nearestEnemyDistance <= nearestDetectionRange)
+                {
+                    audioSource.volume = 1;
+                }
+                else
+                {
+                    audioSource.volume = 1 - ((nearestEnemyDistance - nearestDetectionRange) / (furthestDetectionRange - nearestDetectionRange));
+                }
+
                 audioSource.pitch = audioSource.volume * 3;
                 audioSource.panStereo = ((enemyPosition.x-object2DPosition.x) / furthestDetectionRange);
             }
+        }
+
+        //Fail safe when no enemy is detected, check if it reached outermost player detection range
+        //And mute the volume
+        if (nearestEnemyDistance == furthestDetectionRange)
+        {
+            audioSource.volume = 0;
         }
     }
 

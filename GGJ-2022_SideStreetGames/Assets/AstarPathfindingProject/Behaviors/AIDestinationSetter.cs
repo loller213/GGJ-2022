@@ -33,7 +33,6 @@ namespace Pathfinding {
 		private BoxCollider2D[] safeArea;
 
 		private bool notInSafeArea;
-
 		public int safeAreaQty;
 
 		void OnEnable () {
@@ -62,7 +61,7 @@ namespace Pathfinding {
 
             for (int i = 0; i < safeAreaQty; i++)
             {
-				notInSafeArea = !safeArea[].bounds.Contains(target.position);
+				notInSafeArea = !safeArea[i].bounds.Contains(target.position);
 			}
 
 			//bool notInSafeArea = !safeArea[].bounds.Contains(target.position);

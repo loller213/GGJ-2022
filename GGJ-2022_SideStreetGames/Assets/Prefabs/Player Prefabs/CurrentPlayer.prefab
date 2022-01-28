@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 1796558881025205523}
   - component: {fileID: 7308416174368357905}
   - component: {fileID: 3686025408138918687}
+  - component: {fileID: 8669061196058540831}
   m_Layer: 0
   m_Name: CurrentPlayer
   m_TagString: Player
@@ -326,6 +327,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24131535, y: 0.32926458}
   m_EdgeRadius: 0
+--- !u!114 &8669061196058540831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329114093262105839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23e11db46e89434996dca92e2aa38ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartbeatClip: {fileID: 8300000, guid: 6069f17d29fd88d43befcf5d0716f012, type: 3}
+  detectionRange: 12
 --- !u!1 &7329114093923279141
 GameObject:
   m_ObjectHideFlags: 0

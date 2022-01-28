@@ -25,6 +25,7 @@ public class PlayerLightScript : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI batteryText;
 
+    [SerializeField] private GameObject visionCone;
 
     private void Awake()
     {
@@ -33,15 +34,16 @@ public class PlayerLightScript : MonoBehaviour
 
     void Start()
     {
+        visionCone.SetActive(false);
         batteryPercent = 100f;
-        batteryText.text = Mathf.RoundToInt(batteryPercent) + "%";
+        batteryText.text = Mathf.RoundToInt(batteryPercent) + "";
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        batteryText.text = Mathf.RoundToInt(batteryPercent) + "%";
+        batteryText.text = Mathf.RoundToInt(batteryPercent) + "";
 
         getIsSafe = CharacterController.isSafe;
         getIsOn = CharacterController.isOn;
@@ -62,6 +64,8 @@ public class PlayerLightScript : MonoBehaviour
         //FlashlightIntensity
         if (batteryPercent <= 100 && batteryPercent >= 75)
         {
+            visionCone.SetActive(true);
+
             //playerLight.intensity = 0.9f;
             StartCoroutine(LightFlicker());
             minLight = 0.9f;
@@ -70,7 +74,6 @@ public class PlayerLightScript : MonoBehaviour
         }
         else if (batteryPercent <= 75 && batteryPercent >= 50)
         {
-            //playerLight.intensity = 0.7f;
 
             minLight = 0.7f;
             maxLight = 0.7f;
@@ -85,6 +88,8 @@ public class PlayerLightScript : MonoBehaviour
         }
         else if (batteryPercent <= 25 && batteryPercent >= 5)
         {
+
+            visionCone.SetActive(false);
             minLight = 0.0f;
             maxLight = 0.3f;
 
@@ -103,9 +108,12 @@ public class PlayerLightScript : MonoBehaviour
         if (getIsOn == true)
         {
             playerLightGO.SetActive(true);
+            visionCone.SetActive(true);
         }else if (getIsOn == false)
         {
             playerLightGO.SetActive(false);
+            //Vision Cone Collider is inactive when flashlight is off.
+            visionCone.SetActive(false);
         }
 
     }

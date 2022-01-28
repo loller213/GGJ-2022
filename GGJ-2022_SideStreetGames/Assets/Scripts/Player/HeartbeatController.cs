@@ -26,6 +26,7 @@ public class HeartbeatController : MonoBehaviour
     void Update()
     {
         nearestEnemyDistance = furthestDetectionRange;
+        float detectionRange = furthestDetectionRange - nearestDetectionRange;
 
         Vector2 object2DPosition = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(object2DPosition, furthestDetectionRange);
@@ -39,10 +40,24 @@ public class HeartbeatController : MonoBehaviour
                 Debug.Log("enemy distance: " + enemyDistance);
                 nearestEnemyDistance = enemyDistance < nearestEnemyDistance ? enemyDistance:nearestEnemyDistance;
 
-                audioSource.volume = 1 -(nearestEnemyDistance / furthestDetectionRange);
+                if (nearestEnemyDistance <= nearestDetectionRange)
+                {
+                    audioSource.volume = 1;
+                }
+                else
+                {
+                    float volumeIncrements = (furthestDetectionRange / nearestDetectionRange) / 50f;
+                    audioSource.volume = 1 - volumeIncrements * (nearestEnemyDistance - nearestDetectionRange);
+                }
+
+
+                //audioSource.volume = 1 -(nearestEnemyDistance / furthestDetectionRange);
+                //audioSource.volume = (nearestEnemyDistance-nearestDetectionRange / furthestDetectionRange-nearestDetectionRange);
                 audioSource.pitch = audioSource.volume * 3;
                 audioSource.panStereo = ((enemyPosition.x-object2DPosition.x) / furthestDetectionRange);
                 Debug.Log("stereo:" + audioSource.panStereo);
+
+                Gizmos.DrawWireSphere(enemyPosition, 5);
             }
         }
     }

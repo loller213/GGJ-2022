@@ -8,6 +8,7 @@ TagManager:
   - PlayerPos
   - Enemy
   - Light
+  - LevelGoal
   layers:
   - Default
   - TransparentFX

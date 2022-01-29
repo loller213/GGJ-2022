@@ -32,6 +32,7 @@ public class KeyHolder : MonoBehaviour
         Key key = collision.GetComponent<Key>();
         if (key != null)
         {
+            AudioManager.PlaySound("Pickup Item");
             AddKey(key.GetKeyType());
             Destroy(key.gameObject);
         }

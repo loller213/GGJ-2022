@@ -7,8 +7,6 @@ public class GameControl : MonoBehaviour
 {
     [SerializeField] private Animator pauseAnimator;
     [SerializeField] private Animator gameOverAnimator;
-    [SerializeField] private AudioSource gameOverAudio;
-    [SerializeField] private AudioSource backGroundMusic;
 
     public GameObject PauseUI;
     public GameObject GameOverUI;
@@ -88,10 +86,10 @@ public class GameControl : MonoBehaviour
 
     public void GameOver()
     {
+        AudioManager.PlaySound("Player Died");
         Time.timeScale = 0f;
         GameOverUI.SetActive(true);
-        gameOverAudio.Play();
-        gameOverAnimator.Play("GameOver UI");
+        gameOverAnimator.Play("GameOver UI");   
     }
 
     public void RestartGame()

@@ -9,11 +9,19 @@ public class KeyDoor : Interactable
     [SerializeField] private GameObject icon;
     [SerializeField] private float timer;
     private bool isActive;
+    private Animator doorAnimator;
+    private BoxCollider2D boxColl;
    
 
     private void Awake()
     {
         icon.SetActive(false);
+    }
+
+    private void Start()
+    {
+        doorAnimator = GetComponent<Animator>();
+        boxColl = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -31,7 +39,10 @@ public class KeyDoor : Interactable
 
     public override void Interact()
     {
-        gameObject.SetActive(false);
+        doorAnimator.SetBool("isOpen", true);
+        AudioManager.PlaySound("Open Door");
+        boxColl.enabled = false;
+
     }
 
     public Key.KeyType GetKeyType()

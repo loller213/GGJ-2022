@@ -13,8 +13,13 @@ GameObject:
   - component: {fileID: 114463314391155176}
   - component: {fileID: 114406063486442230}
   m_Layer: 5
+<<<<<<< HEAD:GGJ-2022_SideStreetGames/Assets/Prefabs/Keys/RedKeyButton.prefab
   m_Name: RedKeyButton
   m_TagString: RedKey
+=======
+  m_Name: KeyButton
+  m_TagString: Untagged
+>>>>>>> 5f7355b8d8104d8b23922563f63c3882e21809a6:GGJ-2022_SideStreetGames/Assets/Prefabs/KeyButton.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -540,6 +540,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 263372965733403082, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
   m_PrefabInstance: {fileID: 263372966834750046}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &285934450
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285934446}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48cbc77f2bc9d2345bc2f66878330b6f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &406964153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,10 +1535,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 618845013}
     m_Modifications:
+    - target: {fileID: 263372965308423296, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 210.7685
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372965308423297, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372965308423297, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372965308423297, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 263372965308423297, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2059811162}
+    - target: {fileID: 263372965308423299, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 263372965733403082, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1604,9 +1643,73 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 263372965733403083, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372965733403083, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 263372965733403085, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
       propertyPath: m_Name
       value: PauseUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372965733403085, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966129621284, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 139.80959
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966129621284, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 69.90479
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966129621285, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966271890772, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966271890774, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966271890775, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 689.4394
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966271890775, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 431
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966424819136, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966424819139, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 104.8844
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966424819139, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 52.4422
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966952372806, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 406.1877
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966952372807, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263372966952372807, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 263372966952372807, guid: b4b06531c959e6e47865489f5d894e57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1935,6 +2038,10 @@ PrefabInstance:
       propertyPath: GameOverUI
       value: 
       objectReference: {fileID: 872579795}
+    - target: {fileID: 4668328176454157462, guid: ad7e2acd454c2314e9272639bdcff9bf, type: 3}
+      propertyPath: PauseAnimator
+      value: 
+      objectReference: {fileID: 285934450}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad7e2acd454c2314e9272639bdcff9bf, type: 3}
 --- !u!1001 &8276889984070690632

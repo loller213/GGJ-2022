@@ -5,16 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
+    [SerializeField] private Animator PauseAnimator;
+
     public GameObject PauseUI;
     public GameObject GameOverUI;
+    public float timeCount = 5;
 
+    private float count;
     private bool gamePaused;
+    private bool isCounting;
     public static bool isAlive;
+
 
     private void Start()
     {
+        count = timeCount;
         isAlive = true;
         Time.timeScale = 1f;
+        isCounting = false;
     }
 
     void Update()
@@ -31,9 +39,19 @@ public class GameControl : MonoBehaviour
                 else
                     PauseGame();
             }
+
+            if (isCounting)
+            {
+                count -= 1f;
+                count = timeCount;
+            }
+            else
+                return;
         }
         else
             GameOver();
+
+
     }
 
     //Methods
@@ -41,15 +59,27 @@ public class GameControl : MonoBehaviour
     public void PauseGame()
     {
         PauseUI.SetActive(true);
-        Time.timeScale = 0f;
         gamePaused = true;
+        Time.timeScale = 0f;
+        if (PauseUI)
+        {
+            PauseAnimator.Play("SlideIn");
+        }
     }
 
     public void ResumeGame()
     {
-        PauseUI.SetActive(false);
+        isCounting = true;
+        PauseAnimator.Play("SlideOut");
         Time.timeScale = 1f;
         gamePaused = false;
+        
+        if (count <= 0)
+        {
+            PauseUI.SetActive(false);
+            isCounting = false;
+        }
+
     }
 
     public void GameOver()

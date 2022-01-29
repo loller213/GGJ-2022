@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 257099292360425824}
   - component: {fileID: 6576034556402403423}
   - component: {fileID: 6362972067711739956}
+  - component: {fileID: 3591270375515796977}
   m_Layer: 0
   m_Name: BlueKey
   m_TagString: Untagged
@@ -63,6 +64,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.34}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3591270375515796977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257099292360425823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebe3d54addf8ac469fed82aab1cedde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemButton: {fileID: 257099293069826629}
+  effect: {fileID: 0}
 --- !u!1 &257099292820933912
 GameObject:
   m_ObjectHideFlags: 0

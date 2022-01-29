@@ -119,5 +119,10 @@ public class GameControl : MonoBehaviour
         SceneManager.LoadScene("LoadingScreen");
     }
 
+    public void PlayerWon()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
 }
 

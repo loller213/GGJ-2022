@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KeyHolder : MonoBehaviour
 {
@@ -50,6 +51,11 @@ public class KeyHolder : MonoBehaviour
             {
                 keyDoor.OpenInteractionIcon();
             }
+        }
+
+        if (collision.CompareTag("LevelGoal"))
+        {
+            FindObjectOfType<GameControl>().PlayerWon();
         }
     }
 }

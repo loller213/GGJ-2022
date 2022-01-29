@@ -9,6 +9,10 @@ TagManager:
   - Enemy
   - Light
   - LevelGoal
+  - RedKey
+  - GreenKey
+  - BlueKey
+  - Bag
   layers:
   - Default
   - TransparentFX

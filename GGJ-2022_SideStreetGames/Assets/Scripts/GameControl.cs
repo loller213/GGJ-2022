@@ -96,26 +96,22 @@ public class GameControl : MonoBehaviour
 
     public void RestartGame()
     {
-        AudioManager.PlaySound("Push Button");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
 
     public void ReturntoTitle()
     {
-        AudioManager.PlaySound("Push Button");
         SceneManager.LoadScene("TitleScene");
     }
 
     public void ExitGame()
     {
-        AudioManager.PlaySound("Push Button");
         Application.Quit();
     }
 
     public void StartGame()
     {
-        AudioManager.PlaySound("Push Button");
         SceneManager.LoadScene("LoadingScreen");
     }
 

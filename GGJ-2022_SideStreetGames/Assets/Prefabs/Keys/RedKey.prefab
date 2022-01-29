@@ -280,5 +280,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebe3d54addf8ac469fed82aab1cedde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemButton: {fileID: 3469180462858795099}
-  effect: {fileID: 0}
+  itemButton: {fileID: 1050184551804244, guid: 8e476d81073b3624c8b12a1e0376b5e5, type: 3}
+  effect: {fileID: 1320962406381760, guid: 06168afec4da0964ea6fd6f69f7c8b90, type: 3}

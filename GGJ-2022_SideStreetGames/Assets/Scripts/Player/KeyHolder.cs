@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class KeyHolder : MonoBehaviour
 {
     private List<Key.KeyType> keyList;
+    GameObject bagObj;
+
+    private void Start()
+    {
+        bagObj = GameObject.FindGameObjectWithTag("Bag");
+    }
 
     private void Awake()
     {
@@ -21,6 +27,21 @@ public class KeyHolder : MonoBehaviour
     public void RemoveKey(Key.KeyType keyType)
     {
         keyList.Remove(keyType);
+        Destroy(GetKeyObject(keyType));
+    }
+
+    public GameObject GetKeyObject(Key.KeyType keyType)
+    {
+        foreach (Transform inventoryPlace in bagObj.transform)
+        {
+            GameObject key = inventoryPlace.transform.GetChild(0).GetChild(0).gameObject;
+
+            if (key.CompareTag(keyType + "Key"))
+            {
+                return key;
+            }
+        }
+        return null;
     }
 
     public bool ContainsKey(Key.KeyType keyType)

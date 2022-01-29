@@ -75,6 +75,8 @@ public class GameControl : MonoBehaviour
         Time.timeScale = 1f;
         gamePaused = false;
         AudioManager.PlaySound("Resume game");
+        AudioManager.PlaySound("Push Button");
+
 
         if (count <= 0)
         {
@@ -94,23 +96,27 @@ public class GameControl : MonoBehaviour
 
     public void RestartGame()
     {
+        AudioManager.PlaySound("Push Button");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
 
     public void ReturntoTitle()
     {
+        AudioManager.PlaySound("Push Button");
         SceneManager.LoadScene("TitleScene");
     }
 
     public void ExitGame()
     {
+        AudioManager.PlaySound("Push Button");
         Application.Quit();
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("TestAI");
+        AudioManager.PlaySound("Push Button");
+        SceneManager.LoadScene("LoadingScreen");
     }
 
 }

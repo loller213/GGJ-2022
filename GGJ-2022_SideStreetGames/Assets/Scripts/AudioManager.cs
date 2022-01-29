@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public static AudioClip playerDied;
     public static AudioClip openDoor;
     public static AudioClip itemPickUp;
+    public static AudioClip buttonClick;
     public static AudioClip currentClip;
     public static AudioSource audioSource;
     
@@ -18,7 +19,8 @@ public class AudioManager : MonoBehaviour
         playerDied = Resources.Load<AudioClip>("Playerdied");
         openDoor = Resources.Load<AudioClip>("Door9");
         itemPickUp = Resources.Load<AudioClip>("Grabitem");
-        Debug.Log(playerDied);
+        buttonClick = Resources.Load<AudioClip>("Button10");
+        Debug.Log(buttonClick);
     }
 
     public void SetAudioManager()
@@ -58,6 +60,10 @@ public class AudioManager : MonoBehaviour
 
             case "Pickup Item":
                 audioSource.PlayOneShot(itemPickUp);
+                break;
+
+            case "Push Button":
+                audioSource.PlayOneShot(buttonClick);
                 break;
 
             case "Play level music":

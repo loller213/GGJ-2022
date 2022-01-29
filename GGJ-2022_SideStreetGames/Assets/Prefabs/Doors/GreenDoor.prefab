@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 8858625054697547218}
   - component: {fileID: 8858625054697547219}
   - component: {fileID: 1284878572948818188}
+  - component: {fileID: 4434442731380546334}
   m_Layer: 0
   m_Name: GreenDoor
   m_TagString: Untagged
@@ -508,3 +509,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4434442731380546334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858625054697547228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 000000001dd2fc5f55abbed0
+  m_ShapePath:
+  - {x: -1.4325804, y: -1.43211, z: 0}
+  - {x: 1.4469471, y: -1.421079, z: 0}
+  - {x: 1.4290047, y: 1.3983383, z: 0}
+  - {x: -1.4425215, y: 1.4077352, z: 0}
+  m_ShapePathHash: 1171098603
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -20916

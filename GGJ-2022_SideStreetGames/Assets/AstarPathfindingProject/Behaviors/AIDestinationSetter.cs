@@ -30,17 +30,19 @@ namespace Pathfinding {
 		float switchTime = float.PositiveInfinity;
 
 		//Safe Area
-		private BoxCollider2D[] safeArea;
+		private GameObject[] safeAreasGO;
+		private BoxCollider2D[] safeAreas;
 
 		private bool notInSafeArea;
-		public int safeAreaQty;
 
 		void OnEnable () {
 			ai = GetComponent<IAstarAI>();
-
-            for (int i = 0; i < safeAreaQty; i++)
+			safeAreasGO = GameObject.FindGameObjectsWithTag("Safe Area");
+			
+			safeAreas = new BoxCollider2D[safeAreasGO.Length];
+			for(int i = 0; i < safeAreasGO.Length; ++i)
             {
-				safeArea[i] = GameObject.FindWithTag("Safe Area").GetComponent<BoxCollider2D>();
+				safeAreas[i] = safeAreasGO[i].GetComponent<BoxCollider2D>();
 			}
 
 			//safeArea[] = GameObject.FindWithTag("Safe Area").GetComponent<BoxCollider2D>();
@@ -58,12 +60,16 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-
-            for (int i = 0; i < safeAreaQty; i++)
+			//Assume not in safe area
+			notInSafeArea = true;
+			
+            for (int i = 0; i < safeAreas.Length; i++)
             {
-				notInSafeArea = !safeArea[i].bounds.Contains(target.position);
+				//If player is at least in one of the safe areas, then he's in the safe area
+				if (safeAreas[i].bounds.Contains(target.position) == true)
+					notInSafeArea = false; //not safe = false is (true) self area
 			}
-
+			Debug.Log("not safe "+ notInSafeArea);
 			//bool notInSafeArea = !safeArea[].bounds.Contains(target.position);
 
 

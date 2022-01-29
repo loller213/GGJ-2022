@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
-    [SerializeField] private Animator PauseAnimator;
+    [SerializeField] private Animator pauseAnimator;
+    [SerializeField] private Animator gameOverAnimator;
+    [SerializeField] private AudioSource gameOverAudio;
+    [SerializeField] private AudioSource backGroundMusic;
 
     public GameObject PauseUI;
     public GameObject GameOverUI;
@@ -16,13 +19,14 @@ public class GameControl : MonoBehaviour
     private bool isCounting;
     public static bool isAlive;
 
-
     private void Start()
     {
         count = timeCount;
         isAlive = true;
         Time.timeScale = 1f;
         isCounting = false;
+        FindObjectOfType<AudioManager>().SetAudioManager();
+        AudioManager.PlaySound("Play level music");
     }
 
     void Update()
@@ -61,19 +65,19 @@ public class GameControl : MonoBehaviour
         PauseUI.SetActive(true);
         gamePaused = true;
         Time.timeScale = 0f;
-        if (PauseUI)
-        {
-            PauseAnimator.Play("SlideIn");
-        }
+        AudioManager.PlaySound("Pause game");
+        pauseAnimator.Play("SlideIn");
+        
     }
 
     public void ResumeGame()
     {
         isCounting = true;
-        PauseAnimator.Play("SlideOut");
+        pauseAnimator.Play("SlideOut");
         Time.timeScale = 1f;
         gamePaused = false;
-        
+        AudioManager.PlaySound("Resume game");
+
         if (count <= 0)
         {
             PauseUI.SetActive(false);
@@ -84,7 +88,10 @@ public class GameControl : MonoBehaviour
 
     public void GameOver()
     {
+        Time.timeScale = 0f;
         GameOverUI.SetActive(true);
+        gameOverAudio.Play();
+        gameOverAnimator.Play("GameOver UI");
     }
 
     public void RestartGame()

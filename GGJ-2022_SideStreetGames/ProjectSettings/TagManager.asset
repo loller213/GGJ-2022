@@ -17,7 +17,7 @@ TagManager:
   - UI
   - Enemy
   - Object
-  - 
+  - PlayerUI
   - 
   - 
   - 
@@ -44,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bottom UI
+    uniqueID: 1610404381
+    locked: 0
+  - name: TopUI
+    uniqueID: 3502156629
     locked: 0

@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1207d3f300ff348a4bdda7f05bcf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldOfView: {fileID: 0}
   speed: 5
+  aimSpeed: 0
   animator: {fileID: 7329114093262105747}
 --- !u!114 &7329114093262105838
 MonoBehaviour:
@@ -259,9 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d408e15d70c63943b84d4685da581b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: 
+  items: 000000000000000000000000
   slots:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -340,7 +339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartbeatClip: {fileID: 8300000, guid: 6069f17d29fd88d43befcf5d0716f012, type: 3}
-  detectionRange: 12
+  furthestDetectionRange: 0
+  nearestDetectionRange: 0
 --- !u!1 &7329114093923279141
 GameObject:
   m_ObjectHideFlags: 0

@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 2889960761891748012}
   m_Layer: 0
   m_Name: RedKey
-  m_TagString: Untagged
+  m_TagString: RedKey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,5 +280,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebe3d54addf8ac469fed82aab1cedde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemButton: {fileID: 1270278057558043538, guid: 8e476d81073b3624c8b12a1e0376b5e5, type: 3}
+  itemButton: {fileID: 2221299297304201819, guid: 8e476d81073b3624c8b12a1e0376b5e5, type: 3}
   effect: {fileID: 1320962406381760, guid: 06168afec4da0964ea6fd6f69f7c8b90, type: 3}

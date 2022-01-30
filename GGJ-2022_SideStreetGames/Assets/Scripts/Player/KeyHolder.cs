@@ -7,6 +7,7 @@ public class KeyHolder : MonoBehaviour
 {
     private List<Key.KeyType> keyList;
     GameObject bagObj;
+    GameObject key;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class KeyHolder : MonoBehaviour
     {
         foreach (Transform inventoryPlace in bagObj.transform)
         {
-            GameObject key = inventoryPlace.transform.GetChild(0).GetChild(0).gameObject;
+            key  = inventoryPlace.transform.GetChild(0).GetChild(0).gameObject;
 
             if (key.CompareTag(keyType + "Key"))
             {
@@ -52,21 +53,33 @@ public class KeyHolder : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Key key = collision.GetComponent<Key>();
+        KeyDoor keyDoor = collision.GetComponent<KeyDoor>();
+
+
         if (key != null)
         {
             AudioManager.PlaySound("Pickup Item");
             AddKey(key.GetKeyType());
             Destroy(key.gameObject);
-        }
 
-        KeyDoor keyDoor = collision.GetComponent<KeyDoor>();
+            Debug.Log("Contains Key: " + key.GetKeyType());
+
+            foreach (var n in keyList)
+            {
+                Debug.Log(n);
+            }
+
+
+            
+        }
+       
         if (keyDoor != null)
         {
             if (ContainsKey(keyDoor.GetKeyType()))
             {
                 Debug.Log("Contains Key!");
-                RemoveKey(keyDoor.GetKeyType());
                 keyDoor.Interact();
+                RemoveKey(keyDoor.GetKeyType()); 
             }
             else
             {
